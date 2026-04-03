@@ -1230,7 +1230,7 @@
         }
         document.addEventListener('keydown', e => { if (e.key === 'Escape') closeResume(); });
 
-        function sendMessage() {
+        async function sendMessage() {
             const name = document.getElementById('name').value.trim();
             const email = document.getElementById('email').value.trim();
             const message = document.getElementById('message').value.trim();
@@ -1248,18 +1248,44 @@
             }
             btn.textContent = 'Sending...';
             btn.disabled = true;
+
+            try {
+                const response = await fetch("https://formsubmit.co/ajax/aaryansingh200617@gmail.com", {
+                    method: "POST",
+                    headers: { 
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        name: name,
+                        email: email,
+                        message: message,
+                        _subject: "New Contact from Portfolio!"
+                    })
+                });
+
+                if (response.ok) {
+                    btn.textContent = '✅ Message Sent!';
+                    btn.classList.replace('from-purple-600','from-green-600');
+                    btn.classList.replace('to-violet-700','to-emerald-700');
+                    ['name','email','message'].forEach(id => document.getElementById(id).value = '');
+                } else {
+                    throw new Error("Failed to send");
+                }
+            } catch (error) {
+                btn.textContent = '❌ Failed to Send';
+                btn.classList.replace('from-purple-600','from-red-600');
+                btn.classList.replace('to-violet-700','to-red-700');
+            }
+
             setTimeout(() => {
-                btn.textContent = '✅ Message Sent!';
-                btn.classList.replace('from-purple-600','from-green-600');
-                btn.classList.replace('to-violet-700','to-emerald-700');
-                ['name','email','message'].forEach(id => document.getElementById(id).value = '');
-                setTimeout(() => {
-                    btn.textContent = 'Send Message 🚀';
-                    btn.disabled = false;
-                    btn.classList.replace('from-green-600','from-purple-600');
-                    btn.classList.replace('to-emerald-700','to-violet-700');
-                }, 3000);
-            }, 1200);
+                btn.textContent = 'Send Message 🚀';
+                btn.disabled = false;
+                btn.classList.replace('from-green-600','from-purple-600');
+                btn.classList.replace('to-emerald-700','to-violet-700');
+                btn.classList.replace('from-red-600','from-purple-600');
+                btn.classList.replace('to-red-700','to-violet-700');
+            }, 3000);
         }
     </script>
 </body>

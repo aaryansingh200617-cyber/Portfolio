@@ -1,0 +1,14 @@
+<svg width="100%" viewBox="0 0 680 200" xmlns="http://www.w3.org/2000/svg"><defs><mask id="imagine-text-gaps-bmn0dm" maskUnits="userSpaceOnUse"><rect x="0" y="0" width="680" height="200" fill="white"/><rect x="306" y="57.03679275512695" width="85.864501953125" height="82.07438659667969" fill="black" rx="2"/><rect x="306" y="137.76539611816406" width="100.6346206665039" height="15.753131866455078" fill="black" rx="2"/></mask></defs>
+  
+
+  <rect x="200" y="55" width="90" height="90" rx="20" fill="#0D0C0B" style="fill:rgb(13, 12, 11);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <path d="M 222,76 L 266,100 L 222,124" fill="none" stroke="#E8980C" stroke-width="9.5" stroke-linecap="round" stroke-linejoin="round" style="fill:none;stroke:rgb(232, 152, 12);color:rgb(255, 255, 255);stroke-width:9.5px;stroke-linecap:round;stroke-linejoin:round;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+  <text y="122" style="fill:rgb(0, 0, 0);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, sans-serif;font-size:70px;font-weight:700;text-anchor:start;dominant-baseline:auto">
+    <tspan x="310" fill="#0D0C0B" style="fill:rgb(13, 12, 11);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, sans-serif;font-size:70px;font-weight:700;text-anchor:start;dominant-baseline:auto">a</tspan><tspan fill="#E8980C" style="fill:rgb(232, 152, 12);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, sans-serif;font-size:70px;font-weight:700;text-anchor:start;dominant-baseline:auto">s</tspan>
+  </text>
+
+  <line x1="310" y1="132" x2="356" y2="132" stroke="#E8980C" stroke-width="1.8" mask="url(#imagine-text-gaps-bmn0dm)" style="fill:rgb(0, 0, 0);stroke:rgb(232, 152, 12);color:rgb(255, 255, 255);stroke-width:1.8px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+  <text x="310" y="149" fill="#8A8078" style="fill:rgb(138, 128, 120);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, sans-serif;font-size:10px;font-weight:400;text-anchor:start;dominant-baseline:auto">DEVELOPER</text>
+</svg>

@@ -1,5 +1,15 @@
 {
   "projects": {
     "default": "aaryandev-c7dd3"
-  }
+  },
+  "targets": {
+    "aaryandev-c7dd3": {
+      "hosting": {
+        "main": [
+          "aaryandev"
+        ]
+      }
+    }
+  },
+  "etags": {}
 }

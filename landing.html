@@ -546,6 +546,71 @@
             transform: scale(1.06);
         }
 
+        /* ── 3D ROBOT IN ABOUT SECTION ── */
+        .about-robot-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .about-robot-container {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            max-width: 480px;
+            border-radius: 0;
+            overflow: hidden;
+            background: transparent;
+            border: none;
+            box-shadow: none;
+            transition: transform 0.4s ease;
+        }
+
+        .about-robot-container:hover {
+            transform: translateY(-4px);
+        }
+
+        .about-robot-container iframe {
+            display: block;
+            width: 100%;
+            height: 100%;
+            border: none;
+            background: transparent;
+        }
+
+        /* Cover the "Built with Spline" watermark */
+        .spline-watermark-cover {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            width: 100%;
+            height: 100px;
+            background: linear-gradient(to top, #f3f0ff 60%, rgba(243, 240, 255, 0) 100%);
+            pointer-events: none;
+            z-index: 10;
+        }
+
+        /* Responsive robot sizing */
+        @media (max-width: 639px) {
+            .about-robot-container {
+                max-width: 320px;
+            }
+        }
+
+        @media (min-width: 640px) and (max-width: 1023px) {
+            .about-robot-container {
+                max-width: 400px;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .about-robot-wrapper {
+                position: sticky;
+                top: 6rem;
+            }
+        }
+
         /* ── SECTION OVERFLOW: Clips blobs so they never cause scroll ── */
         section {
             overflow: hidden;
@@ -1093,6 +1158,11 @@
         body.hacker-mode h1 {
             animation: glitch 3s infinite;
         }
+
+        /* 3D Robot hacker mode */
+        body.hacker-mode .spline-watermark-cover {
+            background: linear-gradient(to top, #0a0a0a 35%, transparent 100%) !important;
+        }
     </style>
 </head>
 
@@ -1300,7 +1370,8 @@
                         Skills with <strong>90%</strong>.</div>
                     <div class="resume-achieve-item">Achieved GUVI Certificate in Arduino.</div>
                     <div class="resume-achieve-item">Obtained Google Certificate upon completion of the course
-                        <em>Introduction to AI</em>.</div>
+                        <em>Introduction to AI</em>.
+                    </div>
                     <div class="resume-achieve-item"><strong>Coursera —</strong> Introduction to Front-End Development
                         (Meta); Docker Fundamentals (LearnKartS); Introduction to MongoDB (MongoDB Inc.); Introduction
                         to Git and GitHub (Google); Introduction to Ethical Hacking Principles (SkillUp); Introduction
@@ -1476,14 +1547,17 @@
 
             <!-- Text Content -->
             <div class="relative z-10 reveal text-center md:text-left max-w-xl w-full mx-auto md:mx-0">
-                <p data-h="hero-sub" class="text-purple-500 font-semibold tracking-widest uppercase text-sm mb-4">Welcome to my portfolio
+                <p data-h="hero-sub" class="text-purple-500 font-semibold tracking-widest uppercase text-sm mb-4">
+                    Welcome to my portfolio
                     🙏</p>
                 <h1 data-h="hero-title"
                     class="font-serif font-extrabold text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-tight mb-4 text-gray-900">
                     Hi, I'm<br><span class="gradient-text">Aaryan Singh</span> 👋
                 </h1>
-                <p data-h="hero-role" class="text-xl sm:text-2xl md:text-3xl font-semibold text-purple-600 mb-6">Frontend Developer</p>
-                <p data-h="hero-desc" class="text-base sm:text-lg text-gray-500 leading-relaxed mb-10">I craft beautiful, performant web
+                <p data-h="hero-role" class="text-xl sm:text-2xl md:text-3xl font-semibold text-purple-600 mb-6">
+                    Frontend Developer</p>
+                <p data-h="hero-desc" class="text-base sm:text-lg text-gray-500 leading-relaxed mb-10">I craft
+                    beautiful, performant web
                     experiences with clean code and a keen eye for design.</p>
                 <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start flex-wrap">
                     <a data-h="hero-btn1" href="#about"
@@ -1543,53 +1617,90 @@
         <!-- ─── ABOUT ─── -->
         <section id="about" class="relative px-4 sm:px-6 md:px-20 py-16 sm:py-24 bg-[#f3f0ff]">
             <div class="blob w-72 h-72 bg-violet-400 top-0 right-0" style="transform:translate(40%,0)"></div>
-            <div class="reveal max-w-5xl mx-auto">
-                <p data-h="about-sub" class="text-purple-500 font-semibold tracking-widest uppercase text-sm mb-3">Get to know me</p>
-                <h2 data-h="about-title" class="font-serif text-3xl sm:text-4xl md:text-5xl font-bold mb-8 sm:mb-12 text-gray-900">About
-                    <span class="gradient-text">Me</span></h2>
-                <div class="grid md:grid-cols-2 gap-8 sm:gap-10 md:gap-12 items-center">
-                    <div class="space-y-4 sm:space-y-5 text-sm sm:text-base md:text-lg text-gray-600 leading-relaxed">
-                        <p data-h="about-p1">Hi! I'm <span class="text-purple-600 font-semibold">Aaryan</span>, a passionate Computer
-                            Science student who loves turning ideas into real-world applications.</p>
-                        <p data-h="about-p2">I enjoy working on web development projects and continuously learning new technologies. I'm
-                            focused on improving my problem-solving skills and building projects that are both <span
-                                class="text-cyan-700 font-semibold">useful and creative</span>.</p>
-                        <p data-h="about-p3">My goal is to grow as a full-stack developer and make meaningful contributions in the tech
-                            field.</p>
-                        <div class="flex flex-wrap gap-2 sm:gap-3 pt-2">
-                            <span
-                                class="bg-purple-100 border border-purple-300 text-purple-700 text-xs sm:text-sm font-semibold px-3 sm:px-4 py-1.5 rounded-full">🎓
-                                B.Tech CSE (AI)</span>
-                            <span
-                                class="bg-cyan-50 border border-cyan-300 text-cyan-700 text-xs sm:text-sm font-semibold px-3 sm:px-4 py-1.5 rounded-full">💻
-                                Open to Work</span>
-                            <span
-                                class="bg-violet-100 border border-violet-300 text-violet-700 text-xs sm:text-sm font-semibold px-3 sm:px-4 py-1.5 rounded-full">📍
-                                Rourkela, Odisha</span>
+            <div class="reveal max-w-6xl mx-auto">
+                <p data-h="about-sub" class="text-purple-500 font-semibold tracking-widest uppercase text-sm mb-3">Get
+                    to know me</p>
+                <h2 data-h="about-title"
+                    class="font-serif text-3xl sm:text-4xl md:text-5xl font-bold mb-8 sm:mb-12 text-gray-900">About
+                    <span class="gradient-text">Me</span>
+                </h2>
+
+                <!-- Main About Layout: Content Left + 3D Robot Right -->
+                <div class="flex flex-col-reverse lg:flex-row gap-8 md:gap-10 lg:gap-14 items-center">
+
+                    <!-- LEFT: About Content -->
+                    <div class="flex-1 w-full">
+                        <div
+                            class="space-y-4 sm:space-y-5 text-sm sm:text-base md:text-lg text-gray-600 leading-relaxed">
+                            <p data-h="about-p1">Hi! I'm <span class="text-purple-600 font-semibold">Aaryan</span>, a
+                                passionate Computer
+                                Science student who loves turning ideas into real-world applications.</p>
+                            <p data-h="about-p2">I enjoy working on web development projects and continuously learning
+                                new technologies. I'm
+                                focused on improving my problem-solving skills and building projects that are both <span
+                                    class="text-cyan-700 font-semibold">useful and creative</span>.</p>
+                            <p data-h="about-p3">My goal is to grow as a full-stack developer and make meaningful
+                                contributions in the tech
+                                field.</p>
+                            <div class="flex flex-wrap gap-2 sm:gap-3 pt-2">
+                                <span
+                                    class="bg-purple-100 border border-purple-300 text-purple-700 text-xs sm:text-sm font-semibold px-3 sm:px-4 py-1.5 rounded-full">🎓
+                                    B.Tech CSE (AI)</span>
+                                <span
+                                    class="bg-cyan-50 border border-cyan-300 text-cyan-700 text-xs sm:text-sm font-semibold px-3 sm:px-4 py-1.5 rounded-full">💻
+                                    Open to Work</span>
+                                <span
+                                    class="bg-violet-100 border border-violet-300 text-violet-700 text-xs sm:text-sm font-semibold px-3 sm:px-4 py-1.5 rounded-full">📍
+                                    Rourkela, Odisha</span>
+                            </div>
+                        </div>
+
+                        <!-- Stats Grid -->
+                        <div class="grid grid-cols-2 gap-4 sm:gap-5 mt-8">
+                            <div
+                                class="bg-white border border-purple-200 rounded-xl sm:rounded-2xl p-4 sm:p-6 card-glow transition-all duration-300 hover:-translate-y-1 shadow-sm">
+                                <p data-h="stat1-num" class="text-2xl sm:text-3xl font-extrabold gradient-text mb-1">10+
+                                </p>
+                                <p data-h="stat1-label" class="text-gray-500 text-xs sm:text-sm font-medium">Projects
+                                    Built</p>
+                            </div>
+                            <div
+                                class="bg-white border border-cyan-200 rounded-xl sm:rounded-2xl p-4 sm:p-6 card-glow transition-all duration-300 hover:-translate-y-1 shadow-sm">
+                                <p data-h="stat2-num" class="text-2xl sm:text-3xl font-extrabold text-cyan-600 mb-1">2+
+                                </p>
+                                <p data-h="stat2-label" class="text-gray-500 text-xs sm:text-sm font-medium">Years
+                                    Learning</p>
+                            </div>
+                            <div
+                                class="bg-white border border-violet-200 rounded-xl sm:rounded-2xl p-4 sm:p-6 card-glow transition-all duration-300 hover:-translate-y-1 shadow-sm">
+                                <p data-h="stat3-num" class="text-2xl sm:text-3xl font-extrabold text-violet-600 mb-1">
+                                    11+</p>
+                                <p data-h="stat3-label" class="text-gray-500 text-xs sm:text-sm font-medium">
+                                    Certifications</p>
+                            </div>
+                            <div
+                                class="bg-white border border-purple-200 rounded-xl sm:rounded-2xl p-4 sm:p-6 card-glow transition-all duration-300 hover:-translate-y-1 shadow-sm">
+                                <p data-h="stat4-num" class="text-2xl sm:text-3xl font-extrabold gradient-text mb-1">∞
+                                </p>
+                                <p data-h="stat4-label" class="text-gray-500 text-xs sm:text-sm font-medium">Curiosity
+                                </p>
+                            </div>
                         </div>
                     </div>
-                    <div class="grid grid-cols-2 gap-4 sm:gap-5">
-                        <div
-                            class="bg-white border border-purple-200 rounded-xl sm:rounded-2xl p-4 sm:p-6 card-glow transition-all duration-300 hover:-translate-y-1 shadow-sm">
-                            <p data-h="stat1-num" class="text-2xl sm:text-3xl font-extrabold gradient-text mb-1">10+</p>
-                            <p data-h="stat1-label" class="text-gray-500 text-xs sm:text-sm font-medium">Projects Built</p>
+
+                    <!-- RIGHT: 3D Robot Animation (no background, just the robot) -->
+                    <div class="about-robot-wrapper w-full lg:w-[45%] flex-shrink-0">
+                        <div class="about-robot-container">
+                            <iframe src='https://my.spline.design/genkubgreetingrobot-N2P55BxDtzyKPYyQTP7ow815/'
+                                frameborder='0' width='100%' height='100%' loading="lazy" title="3D Robot Animation"
+                                allow="autoplay" style="border:none;">
+                            </iframe>
+                            <!-- Watermark cover -->
+                            <div class="spline-watermark-cover"></div>
                         </div>
-                        <div
-                            class="bg-white border border-cyan-200 rounded-xl sm:rounded-2xl p-4 sm:p-6 card-glow transition-all duration-300 hover:-translate-y-1 shadow-sm">
-                            <p data-h="stat2-num" class="text-2xl sm:text-3xl font-extrabold text-cyan-600 mb-1">2+</p>
-                            <p data-h="stat2-label" class="text-gray-500 text-xs sm:text-sm font-medium">Years Learning</p>
-                        </div>
-                        <div
-                            class="bg-white border border-violet-200 rounded-xl sm:rounded-2xl p-4 sm:p-6 card-glow transition-all duration-300 hover:-translate-y-1 shadow-sm">
-                            <p data-h="stat3-num" class="text-2xl sm:text-3xl font-extrabold text-violet-600 mb-1">11+</p>
-                            <p data-h="stat3-label" class="text-gray-500 text-xs sm:text-sm font-medium">Certifications</p>
-                        </div>
-                        <div
-                            class="bg-white border border-purple-200 rounded-xl sm:rounded-2xl p-4 sm:p-6 card-glow transition-all duration-300 hover:-translate-y-1 shadow-sm">
-                            <p data-h="stat4-num" class="text-2xl sm:text-3xl font-extrabold gradient-text mb-1">∞</p>
-                            <p data-h="stat4-label" class="text-gray-500 text-xs sm:text-sm font-medium">Curiosity</p>
-                        </div>
+
                     </div>
+
                 </div>
             </div>
         </section>
@@ -1598,8 +1709,10 @@
         <section id="education" class="relative px-4 sm:px-6 md:px-20 py-16 sm:py-24">
             <div class="blob w-72 h-72 bg-purple-300 top-0 left-0" style="transform:translate(-40%,0)"></div>
             <div class="reveal max-w-5xl mx-auto">
-                <p data-h="edu-sub" class="text-purple-500 font-semibold tracking-widest uppercase text-sm mb-3">My Academic Journey</p>
-                <h2 data-h="edu-title" class="font-serif text-3xl sm:text-4xl md:text-5xl font-bold mb-8 sm:mb-12 md:mb-14 text-gray-900">
+                <p data-h="edu-sub" class="text-purple-500 font-semibold tracking-widest uppercase text-sm mb-3">My
+                    Academic Journey</p>
+                <h2 data-h="edu-title"
+                    class="font-serif text-3xl sm:text-4xl md:text-5xl font-bold mb-8 sm:mb-12 md:mb-14 text-gray-900">
                     Education &amp; <span class="gradient-text">Currently</span></h2>
                 <div class="relative">
                     <div
@@ -1664,9 +1777,12 @@
             <div class="blob w-80 h-80 bg-cyan-200 top-10 right-0" style="transform:translate(30%,0)"></div>
             <div class="blob w-72 h-72 bg-purple-300 bottom-0 left-0" style="transform:translate(-30%,0)"></div>
             <div class="reveal max-w-5xl mx-auto">
-                <p data-h="proj-sub" class="text-purple-500 font-semibold tracking-widest uppercase text-sm mb-3">What I've built</p>
-                <h2 data-h="proj-title" class="font-serif text-3xl sm:text-4xl md:text-5xl font-bold mb-6 sm:mb-8 md:mb-12 text-gray-900">My
-                    <span class="gradient-text">Projects</span></h2>
+                <p data-h="proj-sub" class="text-purple-500 font-semibold tracking-widest uppercase text-sm mb-3">What
+                    I've built</p>
+                <h2 data-h="proj-title"
+                    class="font-serif text-3xl sm:text-4xl md:text-5xl font-bold mb-6 sm:mb-8 md:mb-12 text-gray-900">My
+                    <span class="gradient-text">Projects</span>
+                </h2>
                 <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 md:gap-6">
 
                     <!-- Project: AI Hostel -->
@@ -1678,8 +1794,10 @@
                                     class="w-12 h-12 rounded-xl bg-orange-100 flex items-center justify-center text-2xl">
                                     🤖</div>
                             </div>
-                            <h3 data-h="proj1-name" class="font-bold text-gray-800 text-lg mb-2">AI Powered Hostel Redressal System</h3>
-                            <p data-h="proj1-desc" class="text-gray-500 text-sm leading-relaxed mb-4 flex-1">An intelligent system for
+                            <h3 data-h="proj1-name" class="font-bold text-gray-800 text-lg mb-2">AI Powered Hostel
+                                Redressal System</h3>
+                            <p data-h="proj1-desc" class="text-gray-500 text-sm leading-relaxed mb-4 flex-1">An
+                                intelligent system for
                                 managing hostel complaints and feedback, utilizing AI to streamline the redressal
                                 process with real-time status tracking.</p>
                             <div class="flex flex-wrap gap-1.5 mt-auto">
@@ -1713,7 +1831,8 @@
                                     📡</div>
                             </div>
                             <h3 data-h="proj2-name" class="font-bold text-gray-800 text-lg mb-2">Motion Detector</h3>
-                            <p data-h="proj2-desc" class="text-gray-500 text-sm leading-relaxed mb-4 flex-1">Motion detection system using
+                            <p data-h="proj2-desc" class="text-gray-500 text-sm leading-relaxed mb-4 flex-1">Motion
+                                detection system using
                                 Arduino and PIR sensor to detect human movement and trigger LED/buzzer alerts. Tested
                                 for basic security and automation applications.</p>
                             <div class="flex flex-wrap gap-1.5 mt-auto">
@@ -1731,8 +1850,10 @@
                                 <div class="w-12 h-12 rounded-xl bg-blue-100 flex items-center justify-center text-2xl">
                                     🐍</div>
                             </div>
-                            <h3 data-h="proj3-name" class="font-bold text-gray-800 text-lg mb-2">GUI-Based Snake Game</h3>
-                            <p data-h="proj3-desc" class="text-gray-500 text-sm leading-relaxed mb-4 flex-1">A graphical snake game
+                            <h3 data-h="proj3-name" class="font-bold text-gray-800 text-lg mb-2">GUI-Based Snake Game
+                            </h3>
+                            <p data-h="proj3-desc" class="text-gray-500 text-sm leading-relaxed mb-4 flex-1">A graphical
+                                snake game
                                 developed in Java using OOP principles — classes, inheritance, and polymorphism.
                                 Features keyboard controls, score tracking, and collision detection.</p>
                             <div class="flex flex-wrap gap-1.5 mt-auto">
@@ -1752,7 +1873,8 @@
                                     🌐</div>
                             </div>
                             <h3 data-h="proj4-name" class="font-bold text-gray-800 text-lg mb-2">Portfolio Website</h3>
-                            <p data-h="proj4-desc" class="text-gray-500 text-sm leading-relaxed mb-4 flex-1">Personal developer portfolio
+                            <p data-h="proj4-desc" class="text-gray-500 text-sm leading-relaxed mb-4 flex-1">Personal
+                                developer portfolio
                                 showcasing projects, tech stack, and contact info. Features scroll animations,
                                 mobile-responsive design, and custom CSS patterns.</p>
                             <div class="flex flex-wrap gap-1.5 mt-auto">
@@ -1793,9 +1915,11 @@
         <section id="experience" class="relative px-4 sm:px-6 md:px-20 py-16 sm:py-24">
             <div class="blob w-72 h-72 bg-teal-300 top-0 right-0" style="transform:translate(40%,0)"></div>
             <div class="reveal max-w-5xl mx-auto">
-                <p data-h="exp-sub" class="text-purple-500 font-semibold tracking-widest uppercase text-sm mb-3">Hands-on Industry
+                <p data-h="exp-sub" class="text-purple-500 font-semibold tracking-widest uppercase text-sm mb-3">
+                    Hands-on Industry
                     Experience</p>
-                <h2 data-h="exp-title" class="font-serif text-3xl sm:text-4xl md:text-5xl font-bold mb-6 sm:mb-8 md:mb-12 text-gray-900">
+                <h2 data-h="exp-title"
+                    class="font-serif text-3xl sm:text-4xl md:text-5xl font-bold mb-6 sm:mb-8 md:mb-12 text-gray-900">
                     Internship &amp; <span class="gradient-text">SIPs</span></h2>
                 <div class="relative">
                     <div
@@ -1869,9 +1993,11 @@
         <section id="achievements" class="relative px-4 sm:px-6 md:px-20 py-16 sm:py-24 bg-[#f3f0ff]">
             <div class="blob w-80 h-80 bg-amber-200 top-0 left-0 opacity-30" style="transform:translate(-30%,0)"></div>
             <div class="reveal max-w-5xl mx-auto">
-                <p data-h="ach-sub" class="text-purple-500 font-semibold tracking-widest uppercase text-sm mb-3">Recognition &amp;
+                <p data-h="ach-sub" class="text-purple-500 font-semibold tracking-widest uppercase text-sm mb-3">
+                    Recognition &amp;
                     Accomplishments</p>
-                <h2 data-h="ach-title" class="font-serif text-3xl sm:text-4xl md:text-5xl font-bold mb-3 sm:mb-4 text-gray-900">
+                <h2 data-h="ach-title"
+                    class="font-serif text-3xl sm:text-4xl md:text-5xl font-bold mb-3 sm:mb-4 text-gray-900">
                     Achievements &amp; <span class="gradient-text">Certifications</span></h2>
                 <p class="text-gray-500 text-xs sm:text-sm mb-8 sm:mb-10 max-w-3xl leading-relaxed">Verified courses
                     from Coursera, NPTEL, GUVI, and Google. Hover a card to reveal the eye icon and open the credential.
@@ -2239,8 +2365,10 @@
         <section id="tech" class="relative px-4 sm:px-6 md:px-20 py-16 sm:py-24 bg-[#fafafa]">
             <div class="blob w-96 h-96 bg-purple-300 bottom-0 left-0" style="transform:translate(-40%,0)"></div>
             <div class="reveal max-w-5xl mx-auto">
-                <p data-h="tech-sub" class="text-purple-500 font-semibold tracking-widest uppercase text-sm mb-3">What I work with</p>
-                <h2 data-h="tech-title" class="font-serif text-3xl sm:text-4xl md:text-5xl font-bold mb-8 sm:mb-10 md:mb-12 text-gray-900">
+                <p data-h="tech-sub" class="text-purple-500 font-semibold tracking-widest uppercase text-sm mb-3">What I
+                    work with</p>
+                <h2 data-h="tech-title"
+                    class="font-serif text-3xl sm:text-4xl md:text-5xl font-bold mb-8 sm:mb-10 md:mb-12 text-gray-900">
                     Tech <span class="gradient-text">Stack</span></h2>
                 <div class="mb-8 sm:mb-10">
                     <h3 class="text-purple-500 font-bold text-xs sm:text-sm tracking-widest uppercase mb-4 sm:mb-5">
@@ -2397,8 +2525,10 @@
         <section id="hobbies" class="relative px-4 sm:px-6 md:px-20 py-14 sm:py-16 md:py-20">
             <div class="blob w-60 h-60 bg-pink-300 top-0 right-0 opacity-25" style="transform:translate(30%,0)"></div>
             <div class="reveal max-w-5xl mx-auto">
-                <p data-h="hobby-sub" class="text-purple-500 font-semibold tracking-widest uppercase text-sm mb-3">Beyond the Screen</p>
-                <h2 data-h="hobby-title" class="font-serif text-3xl sm:text-4xl md:text-5xl font-bold mb-6 sm:mb-8 md:mb-10 text-gray-900">
+                <p data-h="hobby-sub" class="text-purple-500 font-semibold tracking-widest uppercase text-sm mb-3">
+                    Beyond the Screen</p>
+                <h2 data-h="hobby-title"
+                    class="font-serif text-3xl sm:text-4xl md:text-5xl font-bold mb-6 sm:mb-8 md:mb-10 text-gray-900">
                     Interests &amp; <span class="gradient-text">Hobbies</span></h2>
                 <div class="flex flex-wrap gap-2 sm:gap-3 md:gap-4">
                     <span
@@ -2429,10 +2559,14 @@
         <section id="contact" class="relative px-4 sm:px-6 md:px-20 py-16 sm:py-20 md:py-24 bg-[#f3f0ff]">
             <div class="blob w-80 h-80 bg-cyan-300 top-0 right-0" style="transform:translate(40%,-20%)"></div>
             <div class="reveal max-w-3xl mx-auto text-center">
-                <p data-h="contact-sub" class="text-purple-500 font-semibold tracking-widest uppercase text-sm mb-3">Let's collaborate</p>
-                <h2 data-h="contact-title" class="font-serif text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6 text-gray-900">Get In
-                    <span class="gradient-text">Touch</span></h2>
-                <p data-h="contact-desc" class="text-gray-500 text-sm sm:text-base md:text-lg leading-relaxed mb-8 sm:mb-10 md:mb-12">Whether
+                <p data-h="contact-sub" class="text-purple-500 font-semibold tracking-widest uppercase text-sm mb-3">
+                    Let's collaborate</p>
+                <h2 data-h="contact-title"
+                    class="font-serif text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6 text-gray-900">Get In
+                    <span class="gradient-text">Touch</span>
+                </h2>
+                <p data-h="contact-desc"
+                    class="text-gray-500 text-sm sm:text-base md:text-lg leading-relaxed mb-8 sm:mb-10 md:mb-12">Whether
                     you have a project in mind, want to collaborate, or just want to say hi — my inbox is always open!
                 </p>
                 <div class="flex flex-wrap justify-center gap-2 sm:gap-3 md:gap-4 mb-6 sm:mb-8 md:mb-10">
@@ -2503,7 +2637,8 @@
     </main>
 
     <footer class="bg-white border-t border-gray-100 py-8 text-center text-gray-400 text-sm" style="overflow:hidden;">
-        <p data-h="footer">Built with <span class="text-purple-500">♥</span> using <span class="text-purple-600 font-semibold">Tailwind
+        <p data-h="footer">Built with <span class="text-purple-500">♥</span> using <span
+                class="text-purple-600 font-semibold">Tailwind
                 CSS</span> &mdash; &copy; <span id="year"></span> Aaryan Singh. All rights reserved.</p>
     </footer>
 
